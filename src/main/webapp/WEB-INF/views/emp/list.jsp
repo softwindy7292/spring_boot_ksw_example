@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,8 @@
 				<td>${emp.job}</td>
 				<td>${emp.mgr}</td>
 				<td>${emp.hiredate}</td>
-				<td>${emp.sal}</td>
+				<td><fmt:formatNumber value="${emp.sal}" type="number"/></td>
+                <!-- 숫자 1000을 1,000으로 표시하는 태그 -->
 				<td>${emp.comm}</td>
 				<td>${emp.deptno}</td>
 			</tr>
