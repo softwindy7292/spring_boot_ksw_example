@@ -20,4 +20,8 @@ public interface BoardMapper {
 
 	int modify(BoardVO boardVO);
 	
+	void updateShape(BoardVO boardVO);      
+
+	void insertReply(BoardVO boardVO);
+	
 }
