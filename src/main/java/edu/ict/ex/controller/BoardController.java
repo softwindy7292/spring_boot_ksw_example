@@ -62,7 +62,7 @@ public class BoardController {
 		
 		log.info("write()..");
 		
-		boardService.write(boardVO.getBname(), boardVO.getBtitle(), boardVO.getBcontent());
+		boardService.write(boardVO);
 				
 		return "redirect:/board/list";
 	}
@@ -72,7 +72,7 @@ public class BoardController {
 		
 		log.info("modify()..");
 		
-		boardService.modify(boardVO.getBid(), boardVO.getBname(), boardVO.getBtitle(), boardVO.getBcontent());
+		boardService.modify(boardVO);
 				
 		return "redirect:/board/list";
 	}

@@ -43,14 +43,26 @@ class BoardMapperTest {
 	@Disabled
 	@Test
 	void testWrite() {
-		int count = boardMapper.write("김선우", "나는 문어", "꿈을 꾸는 문어");
+		BoardVO board = new BoardVO();
+		board.setBname("이리");
+		board.setBtitle("오너라");
+		board.setBcontent("이리이리이리이리이리이리이리이");
+		
+		int count = boardMapper.write(board);
 		
 		System.out.println("추가된 개수 : " + count);
 	}
 
+	@Disabled
 	@Test
 	void testModify() {
-		int count = boardMapper.modify(83, "김선우", "나는 문어", "꿈을 꾸는 문어");
+		BoardVO board = new BoardVO();
+		board.setBid(85);
+		board.setBname("아니오");
+		board.setBtitle("아닙니다");
+		board.setBcontent("부정");
+		
+		int count = boardMapper.modify(board);
 		
 		System.out.println("업데이트 된 개수 : " + count);
 	}

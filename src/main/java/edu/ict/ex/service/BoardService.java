@@ -10,9 +10,9 @@ public interface BoardService {
 
 	BoardVO get(int bid);
 
-	void delete(int bid);
+	int delete(int bid);
 
-	void write(String bname, String btitle, String bcontent);
+	int write(BoardVO boardVO);
 
-	void modify(int bid, String bname, String btitle, String bcontent);
+	int modify(BoardVO boardVO);
 }

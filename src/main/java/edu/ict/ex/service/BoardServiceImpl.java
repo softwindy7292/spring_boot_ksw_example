@@ -31,24 +31,24 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public void delete(int bid) {
+	public int delete(int bid) {
 		log.info("delete()..");
 		
-		boardMapper.delete(bid);
+		return boardMapper.delete(bid);
 	}
 
 	@Override
-	public void write(String bname, String btitle, String bcontent) {
+	public int write(BoardVO boardVO) {
 		log.info("write()..");
 		
-		boardMapper.write(bname, btitle, bcontent);
+		return boardMapper.write(boardVO);
 	}
 
 	@Override
-	public void modify(int bid, String bname, String btitle, String bcontent) {
+	public int modify(BoardVO boardVO) {
 		log.info("modify()..");
 		
-		boardMapper.modify(bid, bname, btitle, bcontent);
+		return boardMapper.modify(boardVO);
 		
 	}
 	

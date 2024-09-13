@@ -3,6 +3,7 @@ package edu.ict.ex.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import edu.ict.ex.vo.BoardVO;
 
@@ -15,8 +16,8 @@ public interface BoardMapper {
 
 	int delete(int bid); // 삭제 된 개수 리턴
 
-	int write(String bname, String btitle, String bcontent);
+	int write(@Param("board") BoardVO boardVO);
 
-	int modify(int bid, String bname, String btitle, String bcontent);
+	int modify(BoardVO boardVO);
 	
 }
