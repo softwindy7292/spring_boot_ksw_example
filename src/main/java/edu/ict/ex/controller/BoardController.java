@@ -34,7 +34,7 @@ public class BoardController {
 		
 		log.info("content_view()..");
 		
-		model.addAttribute("content_view", boardService.get(boardVO.getBid()));
+		model.addAttribute("content_view", boardService.get(boardVO));
 		
 		return "board/content_view";
 	}
@@ -44,7 +44,7 @@ public class BoardController {
 		
 		log.info("delete()..");
 		
-		boardService.delete(boardVO.getBid());
+		boardService.delete(boardVO);
 		
 		return "redirect:/board/list";
 	}
@@ -82,7 +82,7 @@ public class BoardController {
 		
 		log.info("reply_view()..");
 		
-		model.addAttribute("reply_view", boardService.get(boardVO.getBid()));
+		model.addAttribute("reply_view", boardService.get(boardVO));
 				
 		return "board/reply_view";
 	}

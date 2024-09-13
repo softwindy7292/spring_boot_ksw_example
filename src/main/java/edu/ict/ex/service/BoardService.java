@@ -8,13 +8,15 @@ public interface BoardService {
 	
 	List<BoardVO> getList();
 
-	BoardVO get(int bid);
+	BoardVO get(BoardVO boardVO);
 
-	int delete(int bid);
+	int delete(BoardVO boardVO);
 
 	int write(BoardVO boardVO);
 
 	int modify(BoardVO boardVO);
 	
 	void writeReply(BoardVO boardVO);
+	
+	void upHit(BoardVO boardVO);
 }

@@ -25,17 +25,23 @@ class BoardMapperTest {
 	@Disabled
 	@Test
 	void testRead() {
-		System.out.println(boardMapper.read(22));
+		BoardVO board = new BoardVO();
+		board.setBid(22);
+		
+		System.out.println(boardMapper.read(board));
 	}
 	
 	@Disabled
 	@Test
 	void testDelete() {
-		int count = boardMapper.delete(23);
+		BoardVO board = new BoardVO();
+		board.setBid(22);
+		
+		int count = boardMapper.delete(board);
 		
 		System.out.println("삭제된 개수 : " + count);
 		
-		if(boardMapper.read(23) == null) {
+		if(boardMapper.read(board) == null) {
 			System.out.println("제대로 삭제되었음");
 		}
 	}

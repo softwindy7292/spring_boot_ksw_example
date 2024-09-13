@@ -24,17 +24,19 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public BoardVO get(int bid) {
+	public BoardVO get(BoardVO boardVO) {
 		log.info("get()..");
 		
-		return boardMapper.read(bid);
+		boardMapper.upHit(boardVO);
+		
+		return boardMapper.read(boardVO);
 	}
 
 	@Override
-	public int delete(int bid) {
+	public int delete(BoardVO boardVO) {
 		log.info("delete()..");
 		
-		return boardMapper.delete(bid);
+		return boardMapper.delete(boardVO);
 	}
 
 	@Override
@@ -59,6 +61,13 @@ public class BoardServiceImpl implements BoardService{
 		
 		boardMapper.updateShape(boardVO);
 		boardMapper.insertReply(boardVO);
+	}
+
+	@Override
+	public void upHit(BoardVO boardVO) {
+		log.info("upHit()..");
+		
+		boardMapper.upHit(boardVO);
 	}
 	
 }

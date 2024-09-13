@@ -12,9 +12,9 @@ public interface BoardMapper {
 	
 	List<BoardVO> getList();
 
-	BoardVO read(int bid);
+	BoardVO read(BoardVO boardVO);
 
-	int delete(int bid); // 삭제 된 개수 리턴
+	int delete(BoardVO boardVO); // 삭제 된 개수 리턴
 
 	int write(@Param("board") BoardVO boardVO);
 
@@ -23,5 +23,7 @@ public interface BoardMapper {
 	void updateShape(BoardVO boardVO);      
 
 	void insertReply(BoardVO boardVO);
+
+	void upHit(BoardVO boardVO);
 	
 }
