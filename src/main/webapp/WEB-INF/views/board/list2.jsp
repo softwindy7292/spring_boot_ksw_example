@@ -22,15 +22,30 @@
 				<td>${board.bid}</td>
 				<td>${board.bname}</td>
 				<td><c:forEach begin="1" end="${board.bindent}">[Re]</c:forEach>
-					<a href="${pageContext.request.contextPath}/board/content_view?bid=${board.bid}">${board.btitle}</a>
+					<a
+					href="${pageContext.request.contextPath}/board/content_view?bid=${board.bid}">${board.btitle}</a>
 				</td>
 				<td>${board.bdate}</td>
 				<td>${board.bhit}</td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="5"><a href="${pageContext.request.contextPath}/board/write_view">글작성</a></td>
+			<td colspan="5"><a
+				href="${pageContext.request.contextPath}/board/write_view">글작성</a></td>
 		</tr>
 	</table>
+	
+	<c:if test="${pageMaker.prev}">
+		<a href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }"><< </a>
+	</c:if>
+
+	<c:forEach var="idx" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+		<a href="list2${pageMaker.makeQuery(idx)}">${idx}</a>
+	</c:forEach>
+
+	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+		<a href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }"> >></a>
+	</c:if>
+	
 </body>
 </html>

@@ -34,6 +34,9 @@
 				<td>${emp.deptno}</td>
 			</tr>
 		</c:forEach>
+		<tr>
+			<td colspan="8"><a href="${pageContext.request.contextPath}/emp/join_view">새로운 직원</a></td>
+		</tr>
 	</table>
 </body>
 </html>

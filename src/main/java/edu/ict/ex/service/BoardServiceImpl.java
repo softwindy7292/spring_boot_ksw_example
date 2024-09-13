@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.ict.ex.mapper.BoardMapper;
+import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,8 +51,7 @@ public class BoardServiceImpl implements BoardService{
 	public int modify(BoardVO boardVO) {
 		log.info("modify()..");
 		
-		return boardMapper.modify(boardVO);
-		
+		return boardMapper.modify(boardVO);	
 	}
 
 	// 순서있는 기능이 오는 부분 = 비지니스 로직
@@ -68,6 +68,20 @@ public class BoardServiceImpl implements BoardService{
 		log.info("upHit()..");
 		
 		boardMapper.upHit(boardVO);
+	}
+
+	@Override
+	public int getTotal() {
+		log.info("getTotal()..");
+		
+		return boardMapper.getTotalCount();
+	}
+
+	@Override
+	public List<BoardVO> getListWithPaging(Criteria cri) {
+		log.info("getListWithPaging()..");
+		
+		return boardMapper.getListWithPaging(cri);	
 	}
 	
 }

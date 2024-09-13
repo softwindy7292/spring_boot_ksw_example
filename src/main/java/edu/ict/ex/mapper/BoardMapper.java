@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.BoardVO;
 
 @Mapper
@@ -25,5 +26,9 @@ public interface BoardMapper {
 	void insertReply(BoardVO boardVO);
 
 	void upHit(BoardVO boardVO);
+	
+	int getTotalCount();
+	
+	List<BoardVO> getListWithPaging(Criteria cri);
 	
 }
