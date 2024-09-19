@@ -5,7 +5,7 @@
 <mapper namespace="edu.ict.ex.mapper.EmpMapper">
     
     <select id="empList" resultType="edu.ict.ex.vo.EmpVO">
-        select * from emp
+        select * from emp order by hiredate desc
     </select>
     
     <select id="deptList" resultType="edu.ict.ex.vo.DeptVO">

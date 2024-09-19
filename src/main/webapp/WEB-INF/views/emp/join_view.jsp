@@ -27,6 +27,7 @@
 				<td>매니저</td>
 				<td>
 					<select name="mgr">
+						<option value="0">없음</option>
 						<c:forEach var="emp" items="${empList}">
 							<option value="${emp.empno}">(${emp.empno})${emp.ename}</option>
 						</c:forEach>
