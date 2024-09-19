@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
 
@@ -15,5 +16,9 @@ public interface EmpMapper {
 	List<DeptVO> deptList();
 
 	void join(EmpVO empVO);
+	
+	int getTotalCount();
+	
+	List<EmpVO> getListWithPaging(Criteria cri);
 	
 }

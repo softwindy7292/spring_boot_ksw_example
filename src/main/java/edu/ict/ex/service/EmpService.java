@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.ict.ex.mapper.EmpMapper;
+import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
@@ -32,5 +33,17 @@ public class EmpService {
 		log.info("join()..");
 		
 		empMapper.join(empVO);		
+	}
+	
+	public int getTotal() {
+		log.info("getTotal()..");
+		
+		return empMapper.getTotalCount();
+	}
+
+	public List<EmpVO> getListWithPaging(Criteria cri) {
+		log.info("getListWithPaging()..");
+		
+		return empMapper.getListWithPaging(cri);
 	}
 }

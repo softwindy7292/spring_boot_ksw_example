@@ -14,9 +14,9 @@ class EmpMapperTest {
 	private EmpMapper empMapper;
 	
 	@Test
-	void testGetList() {
+	void testEmpList() {
 		//System.out.println(empMapper.getList());
-		for (EmpVO vo : empMapper.getList()) {
+		for (EmpVO vo : empMapper.empList()) {
 			System.out.println(vo);
 		}
 	}

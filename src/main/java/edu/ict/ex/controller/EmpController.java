@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.ict.ex.page.Criteria;
+import edu.ict.ex.page.PageVO;
 import edu.ict.ex.service.EmpService;
-import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,11 +24,29 @@ public class EmpController {
 	@GetMapping("/list")
 	public String list(Model model) {
 		
-		System.out.println("list()..");
+		log.info("list()..");
 		
 		model.addAttribute("empList", empService.empList());
 		
 		return "emp/list";
+	}
+	
+	@GetMapping("/list2")
+	public String list2(Criteria criteria, Model model) {
+		
+		log.info("list2()..");
+		
+		model.addAttribute("empList", empService.getListWithPaging(criteria));
+		int total = empService.getTotal();
+		
+		PageVO vo = new PageVO(criteria, total);
+		
+		model.addAttribute("pageMaker", vo);
+		
+		System.out.println(vo);
+		
+		
+		return "emp/list2";
 	}
 	
 	@GetMapping("/join_view")

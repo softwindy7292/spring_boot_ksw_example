@@ -12,8 +12,8 @@ class EmpServiceTest {
 	private EmpService service;
 
 	@Test
-	void testGetList() {
-		for (EmpVO vo : service.getList()) {
+	void testEmpList() {
+		for (EmpVO vo : service.empList()) {
 			System.out.println(vo);
 		}
 	}
