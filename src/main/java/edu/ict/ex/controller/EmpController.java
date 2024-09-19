@@ -69,6 +69,16 @@ public class EmpController {
 		return "emp/list4";
 	}
 	
+	@GetMapping("/info")
+	public String info(Model model) {
+		
+		log.info("info()..");
+		
+		model.addAttribute("gradeList", empService.deptEmpSalgradeList());
+		
+		return "emp/info";
+	}
+	
 	@GetMapping("/join_view")
 	public String join_view(Model model) {
 		

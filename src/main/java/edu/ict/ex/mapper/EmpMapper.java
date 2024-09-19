@@ -8,6 +8,7 @@ import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
+import edu.ict.ex.vo.SalgradeDeptEmpVO;
 
 @Mapper
 public interface EmpMapper {
@@ -21,6 +22,9 @@ public interface EmpMapper {
 	
 	// 조인 2번
 	List<DeptEmpVO> deptEmpList();
+	
+	// 조인 문제
+	List<SalgradeDeptEmpVO> deptEmpSalgradeList();
 
 	void join(EmpVO empVO);
 	

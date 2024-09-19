@@ -10,6 +10,7 @@ import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
+import edu.ict.ex.vo.SalgradeDeptEmpVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -40,6 +41,12 @@ public class EmpService {
 		System.out.println("deptEmpList()..");
 		
 		return empMapper.deptEmpList();
+	}
+	
+	public List<SalgradeDeptEmpVO> deptEmpSalgradeList(){
+		System.out.println("deptEmpSalgradeList()..");
+		
+		return empMapper.deptEmpSalgradeList();
 	}
 	
 	public void join(EmpVO empVO) {

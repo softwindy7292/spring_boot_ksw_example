@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,11 +32,15 @@ class EmpMapperTest {
 		}
 	}
 
+	@Disabled
 	@Test
 	void testDeptEmpList() {
 		System.out.println(empMapper.deptEmpList());
-//		for (DeptEmpVO vo : empMapper.deptEmpList()) {
-//			System.out.println(vo);
-//		}
+	}
+	
+	//@Disabled
+	@Test
+	void testEmpDeptSalgradeList() {
+		System.out.println(empMapper.deptEmpSalgradeList());
 	}
 }
