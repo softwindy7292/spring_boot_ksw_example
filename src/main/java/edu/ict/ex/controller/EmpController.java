@@ -49,6 +49,26 @@ public class EmpController {
 		return "emp/list2";
 	}
 	
+	@GetMapping("/list3")
+	public String list3(Model model) {
+		
+		log.info("list3()..");
+		
+		model.addAttribute("empList", empService.empDeptList());
+		
+		return "emp/list3";
+	}
+	
+	@GetMapping("/list4")
+	public String list4(Model model) {
+		
+		log.info("list4()..");
+		
+		model.addAttribute("joinList", empService.deptEmpList());
+		
+		return "emp/list4";
+	}
+	
 	@GetMapping("/join_view")
 	public String join_view(Model model) {
 		

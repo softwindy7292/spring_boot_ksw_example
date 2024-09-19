@@ -3,22 +3,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.ict.ex.mapper.EmpMapper">
-    
-    <select id="empList" resultType="edu.ict.ex.vo.EmpVO">
-        select * from emp order by hiredate desc
-    </select>
-    
-    <select id="deptList" resultType="edu.ict.ex.vo.DeptVO">
-        select * from dept
-    </select>
-    
-    <insert id="join">
+
+	<select id="empList" resultType="edu.ict.ex.vo.EmpVO">
+		select * from emp order by hiredate desc
+	</select>
+
+	<select id="deptList" resultType="edu.ict.ex.vo.DeptVO">
+		select * from dept
+	</select>
+
+	<select id="empDeptList" resultType="EmpVO">
     	<![CDATA[
+        	select * from emp, dept where emp.deptno = dept.deptno
+		]]>
+	</select>
+	
+	<select id="deptEmpList" resultMap="deptMap">
+		<![CDATA[
+        	select * from emp, dept where emp.deptno = dept.deptno
+		]]>
+	</select>
+	
+	<resultMap id="deptMap" type="DeptEmpVO">
+		<result property="deptno" column="deptno"/>
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
+		<collection property="empList" resultMap="empMap"></collection>
+	</resultMap>
+	
+	<resultMap id="empMap" type="EmpVO">
+		<id property="empno" column="empno"/>
+		<result property="ename" column="ename"/>
+		<result property="job" column="job"/>
+		<result property="mgr" column="mgr"/>
+		<result property="hiredate" column="hiredate"/>
+		<result property="sal" column="sal"/>
+		<result property="comm" column="comm"/>
+		<result property="deptno" column="deptno"/>
+	</resultMap>
+
+	<insert id="join">
+		<![CDATA[
     		insert into emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
     		values (#{empno}, #{ename}, #{job}, #{mgr}, sysdate, #{sal}, #{comm}, #{deptno})
     	]]>
 	</insert>
-	
+
 	<select id="getTotalCount" resultType="int">
     	<![CDATA[
     		select count(*) from emp
@@ -34,5 +64,5 @@
 			WHERE RNUM > (#{pageNum}-1) * #{amount}
 		]]>
 	</select>
-    
+
 </mapper>

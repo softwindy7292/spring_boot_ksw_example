@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import edu.ict.ex.mapper.EmpMapper;
 import edu.ict.ex.page.Criteria;
+import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.DeptVO;
 import edu.ict.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,18 @@ public class EmpService {
 		return empMapper.deptList();
 	}
 
+	public List<EmpVO> empDeptList(){
+		System.out.println("deptList()..");
+		
+		return empMapper.empDeptList();
+	}
+	
+	public List<DeptEmpVO> deptEmpList(){
+		System.out.println("deptEmpList()..");
+		
+		return empMapper.deptEmpList();
+	}
+	
 	public void join(EmpVO empVO) {
 		log.info("join()..");
 		
@@ -46,4 +59,5 @@ public class EmpService {
 		
 		return empMapper.getListWithPaging(cri);
 	}
+	
 }
