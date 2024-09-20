@@ -37,6 +37,9 @@ public interface EmpMapper {
 	
 	// 조인 쌤 방법
 	List<EmpSalgradeVO> empSalgrade();
+	
+	// 쌤 방법으로 문제
+	List<EmpDeptSalgradeVO> empDeptSalgrade();
 
 	void join(EmpVO empVO);
 	

@@ -155,8 +155,41 @@
        <result property="losal" column="losal"/>
        <result property="hisal" column="hisal"/>    
     </resultMap>
+    
+    <select id="empDeptSalgrade" resultMap="empDeptSalgradeMap">
+		<![CDATA[
+        	select * from emp, dept, salgrade where emp.deptno = dept.deptno and sal between losal and hisal order by grade desc
+		]]>
+	</select>
 	
-	
+	<resultMap id="empDeptSalgradeMap" type="EmpDeptSalgradeVO2">
+		<association property="emp" resultMap="empMapMy"></association>
+		<association property="dept" resultMap="deptMapMy"></association>
+		<association property="salgrade" resultMap="salgradeMapMy"></association>
+	</resultMap> 
+    
+    <resultMap id="empMapMy" type="EmpVO" >
+       <id property="empno" column="empno"/>
+       <result property="ename" column="ename"/>
+       <result property="job" column="job"/>
+       <result property="mgr" column="mgr"/>
+       <result property="hiredate" column="hiredate"/>
+       <result property="sal" column="sal"/>
+       <result property="comm" column="comm"/>
+       <result property="deptno" column="deptno"/>
+    </resultMap>
+    
+    <resultMap id="deptMapMy" type="DeptVO">
+		<result property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="loc" column="loc" />
+	</resultMap>
+    
+    <resultMap id="salgradeMapMy" type="SalgradeVO">
+        <result property="grade" column="grade"/>
+       <result property="losal" column="losal"/>
+       <result property="hisal" column="hisal"/>    
+    </resultMap>
 	
 	<insert id="join">
 		<![CDATA[

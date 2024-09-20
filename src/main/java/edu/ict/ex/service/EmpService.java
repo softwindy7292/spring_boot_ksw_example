@@ -70,6 +70,12 @@ public class EmpService {
 		return empMapper.empSalgrade();
 	}
 	
+	public List<EmpDeptSalgradeVO> empDeptSalgrade(){
+		System.out.println("empDeptSalgrade()..");
+		
+		return empMapper.empDeptSalgrade();
+	}
+	
 	public void join(EmpVO empVO) {
 		log.info("join()..");
 		
