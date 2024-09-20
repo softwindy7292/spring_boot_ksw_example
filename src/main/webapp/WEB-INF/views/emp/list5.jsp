@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>emp 리스트 페이징 추가하기</h1>
+	<h1>emp 리스트5</h1>
+	<h1>일대일 대응 resultMap</h1>
 	<table border="1">
 		<tr>
 			<td>사원번호</td>
@@ -20,6 +21,8 @@
 			<td>급여</td>
 			<td>보너스</td>
 			<td>부서번호</td>
+			<td>부서이름</td>
+			<td>부서위치</td>			
 		</tr>
 		<c:forEach var="emp" items="${empList}">
 			<tr>
@@ -28,28 +31,17 @@
 				<td>${emp.job}</td>
 				<td>${emp.mgr}</td>
 				<td>${emp.hiredate}</td>
-				<td><fmt:formatNumber value="${emp.sal}" type="number" /></td>
-				<!-- 숫자 1000을 1,000으로 표시하는 태그 -->
+				<td><fmt:formatNumber value="${emp.sal}" type="number"/></td>
+                <!-- 숫자 1000을 1,000으로 표시하는 태그 -->
 				<td>${emp.comm}</td>
-				<td>${emp.deptno}</td>
+				<td>${emp.dept.deptno}</td>
+				<td>${emp.dept.dname}</td>
+				<td>${emp.dept.loc}</td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="8">
-				<a href="${pageContext.request.contextPath}/emp/join_view">새로운 직원</a>
-			</td>
+			<td colspan="8"><a href="${pageContext.request.contextPath}/emp/join_view">새로운 직원</a></td>
 		</tr>
 	</table>
-	<c:if test="${pageMaker.prev}">
-		<a href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }"><< </a>
-	</c:if>
-
-	<c:forEach var="idx" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-		<a href="list2${pageMaker.makeQuery(idx)}">${idx}</a>
-	</c:forEach>
-
-	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<a href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }"> >></a>
-	</c:if>
 </body>
 </html>

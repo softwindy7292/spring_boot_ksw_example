@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>emp 리스트</h1>
+	<h1>emp 리스트 조인 2번</h1>
+	<h1>새로운 VO 만들어서 resultMap 사용하기</h1>
 	<table border="1">
 		<tr>
 			<td>사원번호</td>

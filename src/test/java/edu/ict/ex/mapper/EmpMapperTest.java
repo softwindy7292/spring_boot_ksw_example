@@ -38,9 +38,28 @@ class EmpMapperTest {
 		System.out.println(empMapper.deptEmpList());
 	}
 	
-	//@Disabled
+	@Disabled
+	@Test
+	void testSalgradeDeptEmpList() {
+		System.out.println(empMapper.salgradeDeptEmpList());
+	}
+	
+	@Disabled
 	@Test
 	void testEmpDeptSalgradeList() {
-		System.out.println(empMapper.deptEmpSalgradeList());
+		System.out.println(empMapper.empDeptSalgradeList());
 	}
+	
+	@Disabled
+	@Test
+	void testEmpOneDeptList() {
+		System.out.println(empMapper.empOneDeptList());
+	}
+	
+	//@Disabled
+	@Test
+	void testEmpSalgrade() {
+		System.out.println(empMapper.empSalgrade());
+	}
+	
 }

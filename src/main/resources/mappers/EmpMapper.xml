@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.ict.ex.mapper.EmpMapper">
 
 	<select id="empList" resultType="edu.ict.ex.vo.EmpVO">
@@ -17,69 +16,148 @@
         	select * from emp, dept where emp.deptno = dept.deptno
 		]]>
 	</select>
-	
+
 	<select id="deptEmpList" resultMap="deptMap">
 		<![CDATA[
         	select * from emp, dept where emp.deptno = dept.deptno
 		]]>
 	</select>
-	
+
 	<resultMap id="deptMap" type="DeptEmpVO">
-		<result property="deptno" column="deptno"/>
-		<result property="dname" column="dname"/>
-		<result property="loc" column="loc"/>
+		<result property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="loc" column="loc" />
 		<collection property="empList" resultMap="empMap"></collection>
 	</resultMap>
-	
+
 	<resultMap id="empMap" type="EmpVO">
-		<id property="empno" column="empno"/>
-		<result property="ename" column="ename"/>
-		<result property="job" column="job"/>
-		<result property="mgr" column="mgr"/>
-		<result property="hiredate" column="hiredate"/>
-		<result property="sal" column="sal"/>
-		<result property="comm" column="comm"/>
-		<result property="deptno" column="deptno"/>
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="mgr" column="mgr" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<result property="deptno" column="deptno" />
 	</resultMap>
-	
-	
-	
-	
-	
-	<select id="deptEmpSalgradeList" resultMap="salgradeMapQ">
+
+	<select id="salgradeDeptEmpList" resultMap="salgradeMapQ">
 		<![CDATA[
         	select * from emp, dept, salgrade where emp.deptno = dept.deptno and sal between losal and hisal order by grade desc
 		]]>
 	</select>
-	
+
 	<resultMap id="salgradeMapQ" type="SalgradeDeptEmpVO">
-		<result property="grade" column="grade"/>
-		<result property="losal" column="losal"/>
-		<result property="hisal" column="hisal"/>
+		<result property="grade" column="grade" />
+		<result property="losal" column="losal" />
+		<result property="hisal" column="hisal" />
 		<collection property="deptList" resultMap="deptMapQ"></collection>
 	</resultMap>
-	
+
 	<resultMap id="deptMapQ" type="DeptEmpVO">
-		<result property="deptno" column="deptno"/>
-		<result property="dname" column="dname"/>
-		<result property="loc" column="loc"/>
+		<result property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="loc" column="loc" />
 		<collection property="empList" resultMap="empMapQ"></collection>
 	</resultMap>
-	
+
 	<resultMap id="empMapQ" type="EmpVO">
-		<id property="empno" column="empno"/>
-		<result property="ename" column="ename"/>
-		<result property="job" column="job"/>
-		<result property="mgr" column="mgr"/>
-		<result property="hiredate" column="hiredate"/>
-		<result property="sal" column="sal"/>
-		<result property="comm" column="comm"/>
-		<result property="deptno" column="deptno"/>
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="mgr" column="mgr" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<result property="deptno" column="deptno" />
 	</resultMap>
 	
-	
-	
+	<select id="empDeptSalgradeList" resultMap="empMapQ2">
+		<![CDATA[
+        	select * from emp, dept, salgrade where emp.deptno = dept.deptno and sal between losal and hisal order by grade desc
+		]]>
+	</select>
 
+	<resultMap id="empMapQ2" type="EmpDeptSalgradeVO">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="mgr" column="mgr" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<result property="deptno" column="deptno" />
+		<association property="dept" resultMap="deptMapQ2"></association>
+		<association property="salgrade" resultMap="salgradeMapQ2"></association>
+	</resultMap>
+
+	<resultMap id="deptMapQ2" type="DeptVO">
+		<result property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="loc" column="loc" />
+	</resultMap>
+
+	<resultMap id="salgradeMapQ2" type="SalgradeVO">
+		<result property="grade" column="grade" />
+		<result property="losal" column="losal" />
+		<result property="hisal" column="hisal" />
+	</resultMap>
+
+	<select id="empOneDeptList" resultMap="empOneMap">
+		<![CDATA[
+        	select * from emp, dept where emp.deptno = dept.deptno
+		]]>
+	</select>
+
+	<resultMap id="empOneMap" type="EmpDeptVO">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename" />
+		<result property="job" column="job" />
+		<result property="mgr" column="mgr" />
+		<result property="hiredate" column="hiredate" />
+		<result property="sal" column="sal" />
+		<result property="comm" column="comm" />
+		<result property="deptno" column="deptno" />
+		<association property="dept" resultMap="deptOneMap"></association>
+	</resultMap>
+	
+	<resultMap id="deptOneMap" type="DeptVO">
+		<result property="deptno" column="deptno" />
+		<result property="loc" column="loc" />
+		<result property="dname" column="dname" />
+	</resultMap>
+
+
+	<select id="empSalgrade" resultMap="empSalgradeMap">
+		<![CDATA[
+        	select * from emp, salgrade where sal between losal and hisal
+		]]>
+	</select>
+
+	<resultMap id="empSalgradeMap" type="EmpSalgradeVO">
+		<association property="emp" resultMap="empMapT"></association>
+		<association property="salgrade" resultMap="salgradeMapT"></association>
+	</resultMap> 
+    
+    <resultMap id="empMapT" type="EmpVO" >
+       <id property="empno" column="empno"/>
+       <result property="ename" column="ename"/>
+       <result property="job" column="job"/>
+       <result property="mgr" column="mgr"/>
+       <result property="hiredate" column="hiredate"/>
+       <result property="sal" column="sal"/>
+       <result property="comm" column="comm"/>
+       <result property="deptno" column="deptno"/>
+    </resultMap>
+    
+    <resultMap id="salgradeMapT" type="SalgradeVO">
+        <result property="grade" column="grade"/>
+       <result property="losal" column="losal"/>
+       <result property="hisal" column="hisal"/>    
+    </resultMap>
+	
+	
+	
 	<insert id="join">
 		<![CDATA[
     		insert into emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 

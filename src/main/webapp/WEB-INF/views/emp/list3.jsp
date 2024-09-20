@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>emp 리스트</h1>
+	<h1>emp 리스트 조인 1번</h1>
+	<h1>기존에 있는 EmpVO에 DeptVO 컬럼 값 추가하기</h1>
 	<table border="1">
 		<tr>
 			<td>사원번호</td>

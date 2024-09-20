@@ -9,8 +9,11 @@ import edu.ict.ex.mapper.EmpMapper;
 import edu.ict.ex.page.Criteria;
 import edu.ict.ex.vo.DeptEmpVO;
 import edu.ict.ex.vo.DeptVO;
+import edu.ict.ex.vo.EmpDeptSalgradeVO;
+import edu.ict.ex.vo.EmpDeptVO;
 import edu.ict.ex.vo.EmpVO;
 import edu.ict.ex.vo.SalgradeDeptEmpVO;
+import edu.ict.ex.vo.join.EmpSalgradeVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -43,10 +46,28 @@ public class EmpService {
 		return empMapper.deptEmpList();
 	}
 	
-	public List<SalgradeDeptEmpVO> deptEmpSalgradeList(){
-		System.out.println("deptEmpSalgradeList()..");
+	public List<SalgradeDeptEmpVO> salgradeDeptEmpList(){
+		System.out.println("salgradeDeptEmpList()..");
 		
-		return empMapper.deptEmpSalgradeList();
+		return empMapper.salgradeDeptEmpList();
+	}
+	
+	public List<EmpDeptSalgradeVO> empDeptSalgradeList(){
+		System.out.println("empDeptSalgradeList()..");
+		
+		return empMapper.empDeptSalgradeList();
+	}
+	
+	public List<EmpDeptVO> empOneDeptList(){
+		System.out.println("empOneDeptList()..");
+		
+		return empMapper.empOneDeptList();
+	}
+	
+	public List<EmpSalgradeVO> empSalgrade(){
+		System.out.println("empSalgrade()..");
+		
+		return empMapper.empSalgrade();
 	}
 	
 	public void join(EmpVO empVO) {

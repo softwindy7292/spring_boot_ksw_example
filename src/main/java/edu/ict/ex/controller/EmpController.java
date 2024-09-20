@@ -74,9 +74,39 @@ public class EmpController {
 		
 		log.info("info()..");
 		
-		model.addAttribute("gradeList", empService.deptEmpSalgradeList());
+		model.addAttribute("gradeList", empService.salgradeDeptEmpList());
 		
 		return "emp/info";
+	}
+	
+	@GetMapping("/info2")
+	public String info2(Model model) {
+		
+		log.info("info2()..");
+		
+		model.addAttribute("gradeList", empService.empDeptSalgradeList());
+		
+		return "emp/info2";
+	}
+	
+	@GetMapping("/list5")
+	public String list5(Model model) {
+		
+		log.info("list5()..");
+		
+		model.addAttribute("empList", empService.empOneDeptList());
+		
+		return "emp/list5";
+	}
+	
+	@GetMapping("/info3")
+	public String info3(Model model) {
+		
+		log.info("info3()..");
+		
+		model.addAttribute("gradeList", empService.empSalgrade());
+		
+		return "emp/info3";
 	}
 	
 	@GetMapping("/join_view")
