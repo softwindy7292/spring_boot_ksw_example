@@ -28,7 +28,7 @@ public class ShopController {
 		
 		model.addAttribute("gradeList", empService.empDeptSalgrade());
 		
-		return "/index";
+		return "index";
 	}
 	
 }
