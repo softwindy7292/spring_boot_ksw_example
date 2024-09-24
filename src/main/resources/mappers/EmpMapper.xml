@@ -197,6 +197,12 @@
     		values (#{empno}, #{ename}, #{job}, #{mgr}, sysdate, #{sal}, #{comm}, #{deptno})
     	]]>
 	</insert>
+	
+	<delete id="delete">
+    	<![CDATA[
+    		delete from emp where empno = #{empno}
+    	]]>
+	</delete>
 
 	<select id="getTotalCount" resultType="int">
     	<![CDATA[

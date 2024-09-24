@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시글</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/emp.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		function listCallback(result){
+			let htmls = "";
+	
+			if(result.length < 1){
+				htmls.push("등록된 사원이 없습니다.");
+			}else{
+
+				$(result).each(function(){
+					htmls += '<option value=' + this.empno + '>(' + this.empno + ')' + this.ename + '</option>';
+				});
+			}
+				
+			$('#mgr_list').append(htmls);
+	
+		}
+		// <option value="${dept.deptno}">(${dept.deptno})${dept.dname}</option>
+		
+		function deptListCallback(result){
+			let htmls = "";
+	
+			$("#deptno_list").html('');
+	
+			if(result.length < 1){
+				htmls.push("등록된 부서가 없습니다.");
+			}else{
+
+				$(result).each(function(){
+					htmls += '<option value=' + this.deptno + '>(' + this.deptno + ')' + this.dname + '</option>';
+				});
+			}
+				
+			$('#deptno_list').append(htmls);
+	
+		}
+		
+		let emp = empService();
+		
+		emp.list(listCallback);
+		emp.deptList(deptListCallback);
+		
+		$("#join").submit(function(event){
+			event.preventDefault();
+			
+			let joinEmp = {
+				empno : $('#input_empno').val(),
+				ename : $('#input_ename').val(),
+				job : $('#input_job').val(),
+				mgr : $('#mgr_list').val(),
+				sal : $('#input_sal').val(),
+				comm : $('#input_comm').val(),
+				deptno : $('#deptno_list').val()
+			}
+			
+			emp.join(joinEmp);
+			
+			$(location).attr('href', 'empList.html');
+		})
+	
+	});
+</script>
+</head>
+<body>
+	<h1>새로운 직원 입력</h1>
+	<table>
+		<form id="join" action="modify" method="post">
+			<tr>
+				<td>사원번호</td>
+				<td><input id="input_empno" type="text" name="empno"></td>
+			</tr>
+			<tr>
+				<td>사원이름</td>
+				<td><input id="input_ename" type="text" name="ename"></td>
+			</tr>
+			<tr>
+				<td>사원직급</td>
+				<td><input id="input_job" type="text" name="job"></td>
+			</tr>
+			<tr>
+				<td>매니저</td>
+				<td>
+					<select id="mgr_list" name="mgr">
+						<option value="0">없음</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>급여</td>
+				<td><input id="input_sal" type="text" name="sal"></td>
+			</tr>
+			<tr>
+				<td>보너스</td>
+				<td><input id="input_comm" type="text" name="comm"></td>
+			</tr>
+			<tr>
+				<td>부서번호</td>
+				<td>
+					<select id="deptno_list" name="deptno">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><input id="input_emp" type="submit" value="입사"></td>
+			</tr>
+		</form>
+	</table>
+</body>
+</html>

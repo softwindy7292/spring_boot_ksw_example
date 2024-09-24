@@ -41,7 +41,9 @@ public interface EmpMapper {
 	// 쌤 방법으로 문제
 	List<EmpDeptSalgradeVO> empDeptSalgrade();
 
-	void join(EmpVO empVO);
+	int join(EmpVO empVO);
+	
+	int delete(EmpVO empVO);
 	
 	int getTotalCount();
 	

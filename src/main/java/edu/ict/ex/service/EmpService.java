@@ -76,10 +76,16 @@ public class EmpService {
 		return empMapper.empDeptSalgrade();
 	}
 	
-	public void join(EmpVO empVO) {
+	public int join(EmpVO empVO) {
 		log.info("join()..");
 		
-		empMapper.join(empVO);		
+		return empMapper.join(empVO);		
+	}
+	
+	public int delete(EmpVO empVO) {
+		log.info("delete()..");
+		
+		return empMapper.delete(empVO);		
 	}
 	
 	public int getTotal() {

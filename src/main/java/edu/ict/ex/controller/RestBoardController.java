@@ -71,7 +71,7 @@ public class RestBoardController {
 	@GetMapping("/rest")
 	public ModelAndView rest() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("rest/rest");
+		mv.setViewName("rest/rest_list2");
 		
 		return mv;
 	}
