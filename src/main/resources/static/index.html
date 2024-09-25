@@ -22,6 +22,68 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/js/emp.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			function listCallback(result){
+				let htmls = "";
+		
+				if(result.length < 1){
+					htmls.push("등록된 사원이 없습니다.");
+				}else{
+						
+					$(result).each(function(){
+						htmls += '<div class="' + 'col-sm-4' + '">';
+						htmls += '<div class="' + 'product-image-wrapper' + '">';
+						htmls += '<div class="' + 'single-products' + '">';
+						htmls += '<div class="' + 'productinfo text-center' + '">';
+						htmls += '<img src="' + 'images/home/product1.jpg' + '" alt="' + '이미지오류' + '"/>';
+						htmls += '<h2>' + this.sal + '</h2>';
+						htmls += '<p>' + this.ename + '</p>';
+						htmls += '<a href="' + '#' + '" class="' + 'btn btn-default add-to-cart' + '">' + this.empno + '</a>';
+						htmls += '</div>';
+						htmls += '<div class="' + 'product-overlay' + '">';
+						htmls += '<div class="' + 'overlay-content' + '">';
+						htmls += '<h2>' + this.sal + '</h2>';
+						htmls += '<p>' + this.ename + '</p>';
+						htmls += '<a href="' + '#' + '" class="' + 'btn btn-default add-to-cart' + '">' + this.empno + '</a>';
+						htmls += '</div>';
+						htmls += '</div>';
+						htmls += '</div>';
+						htmls += '<div class="' + 'choose' + '">';
+						htmls += '<ul class="' + 'nav nav-pills nav-justified' + '">';
+						htmls += '<li><a href="' + '#' + '"><i class="' + 'fa fa-plus-square' + '"></i>' + 'Add to wishlist' + '</a></li>';
+						htmls += '<li><a href="' + '#' + '"><i class="' + 'fa fa-plus-square' + '"></i>' + 'Add to compare' + '</a></li>';
+						htmls += '</ul>';
+						htmls += '</div>';
+						htmls += '</div>';
+						htmls += '</div>';
+					});
+					/*
+					clone을 써서 하는 방법
+					col-sm-4 태그에 id부여
+					하나만 두고 다 삭제
+					하나 남은거에 hidden처리(style="display:none")
+					clone함
+					clone한거에 hidden제거
+					col-sm-4 태그의 부모에 id부여
+					부모태그에 clone한거 append 하기
+					*/
+				}
+					
+				$('#empDiv').append(htmls);
+		
+			}
+			
+			let emp = empService();
+			
+			emp.list(listCallback);
+			
+		});
+	</script>
 </head><!--/head-->
 
 <body>
@@ -352,136 +414,14 @@
 				</div>
 				
 				<div class="col-sm-9 padding-right">
-					<div class="features_items"><!--features_items-->
+					<div id="empDiv" class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product3.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product4.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product5.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
+					</div><!--features_items-->
+					
+					<div id="f-items" class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						
+						<div id="person-card" style="display:none" class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
@@ -506,8 +446,39 @@
 								</div>
 							</div>
 						</div>
-						
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$.ajax({
+			type :"GET",
+			url : "/emps/list",
+			success: function (result) {       
+				console.log(result);
+				
+				$(result).each(function(){
+					let pCard = $("#person-card").clone();
+					$(pCard).show();
+					
+					$(pCard).find('.single-products').find('h2').text("$" + this.sal);
+					$(pCard).find('.single-products').find('p').text(this.ename);
+
+					$(pCard).find('.add-to-cart').html('<i class="fa fa-shopping-cart"></i>' + this.empno)
+					
+					$("#f-items").append(pCard);   /*    f-items 부모 */
+					
+				});      
+	           
+			},
+			error: function (e) {
+				console.log(e);
+			}
+		});
+	   
+	});
+</script> 
 					</div><!--features_items-->
+					
+					
 					
 					<div class="category-tab"><!--category-tab-->
 						<div class="col-sm-12">
