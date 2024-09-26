@@ -34,6 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	}
 	
+	
+	
 	// 권한 설정
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
