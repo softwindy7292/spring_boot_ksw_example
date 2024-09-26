@@ -462,9 +462,13 @@
 					$(pCard).find('.single-products').find('h2').text("$" + this.sal);
 					$(pCard).find('.single-products').find('p').text(this.ename);
 
-					$(pCard).find('.add-to-cart').html('<i class="fa fa-shopping-cart"></i>' + this.empno)
+					$(pCard).find('.add-to-cart').html('<i class="fa fa-shopping-cart"></i>' + this.empno);
 					
-					$("#f-items").append(pCard);   /*    f-items 부모 */
+					let random = Math.floor(Math.random() * 6) + 1;
+					
+					$(pCard).find('.productinfo').find('img').attr("src", 'images/home/product' + random + '.jpg');
+					
+					$("#f-items").append(pCard);   /* f-items 부모 */
 					
 				});      
 	           
@@ -475,7 +479,7 @@
 		});
 	   
 	});
-</script> 
+</script>
 					</div><!--features_items-->
 					
 					
