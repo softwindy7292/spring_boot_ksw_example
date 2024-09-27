@@ -64,10 +64,5 @@ class UserMapperTest {
 		System.out.println(user.getPassword());
 		assertEquals(isMatch, true);
 	}
-	
-	@Test
-	void testInsertAuthorities() {
-		
-	}
 
 }
