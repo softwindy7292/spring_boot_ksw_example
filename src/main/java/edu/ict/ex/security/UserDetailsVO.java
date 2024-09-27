@@ -27,22 +27,30 @@ public class UserDetailsVO implements UserDetails{
 	
 	private CartVO cart;
 	
+	private String email;
+	
 	public UserDetailsVO(UserVO user) {
 		this.username = user.getUsername();
 		this.setPassword(user.getPassword());
 		this.setAuthorities(user);
+		this.setEmail(user.getEmail());
 	}
 	
 	public UserDetailsVO(UserVO user, CartVO cart) {
 		this.username = user.getUsername();
 		this.setPassword(user.getPassword());
 		this.setAuthorities(user);
+		this.setEmail(user.getEmail());
 		
 		this.cart = cart;
 	}
 	
 	public CartVO getCart() {
 		return cart;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 
 	// UserVO에서 권한을 추출하여 UserDetails에서 요구하는 권한 형식으로 만들어줌

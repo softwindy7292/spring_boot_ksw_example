@@ -33,8 +33,9 @@
 		<p><sec:authentication property="principal"/></p>
 		<p><sec:authentication property="credentials"/></p>
 		<p><sec:authentication property="authorities"/></p>
-		<p>장바구니 정보<sec:authentication property="principal.cart.product"/></p>
-		<p>개수<sec:authentication property="principal.cart.count"/></p>
+		<p>장바구니 정보 : <sec:authentication property="principal.cart.product"/></p>
+		<p>개수 : <sec:authentication property="principal.cart.count"/></p>
+		<p>링크 : <sec:authentication property="principal.email"/></p>
 
 		<p><a href="<c:url value="/loginInfo" />">로그인 정보 확인 방법3 가지</a></p>
 	</sec:authorize>

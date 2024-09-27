@@ -19,4 +19,6 @@ public class UserVO {
 	private String enabled;
 	
 	private List<AuthVO> authList;
+	
+	private String email = "https://cdn2.ppomppu.co.kr/zboard/data3/2019/0127/m_20190127002243_uqfypznz.jpg";
 }
